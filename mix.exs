@@ -62,6 +62,7 @@ defmodule Scrivener.Phoenix.MixProject do
       {:phoenix_live_view, "~> 1.0"},
       {:ex_doc, "~> 0.25", only: :dev, runtime: false},
       # test
+      {:floki, ">= 0.30.0", only: :test},
       {:jason, "~> 1.2", only: :test},
       #{:phoenix, "~> 1.6", only: :test}, # pulled by phoenix_live_view
       {:excoveralls, "~> 0.14", only: :test},
