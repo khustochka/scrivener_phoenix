@@ -57,12 +57,14 @@ defmodule Scrivener.Phoenix.MixProject do
     [
       {:gettext, "~> 0.20"},
       {:scrivener, "~> 2.5"},
-      #{:phoenix_html, "~> 2.11"}, # pulled by phoenix_live_view
-      {:phoenix_live_view, ">= 0.16.0"},
+      {:phoenix_html, "~> 4.0"},
+      {:phoenix_html_helpers, "~> 1.0"},
+      {:phoenix_live_view, ">= 0.20.0"},
       {:ex_doc, "~> 0.25", only: :dev, runtime: false},
       # test
       {:jason, "~> 1.2", only: :test},
-      #{:phoenix, "~> 1.6", only: :test}, # pulled by phoenix_live_view
+      {:phoenix_view, "~> 2.0", only: [:test]},
+      # {:phoenix, "~> 1.6", only: :test}, # pulled by phoenix_live_view
       {:excoveralls, "~> 0.14", only: :test},
       {:dialyxir, "~> 1.0", only: ~W[dev test]a, runtime: false},
     ]

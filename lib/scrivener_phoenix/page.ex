@@ -3,6 +3,8 @@ defmodule Scrivener.Phoenix.Page do
   A page (link) to render in HTML for the pagination.
   """
 
+  import Phoenix.Component, only: [{:sigil_H, 2}, {:link, 1}]
+
   defstruct ~W[no href]a
 
   @type t :: %__MODULE__{
@@ -18,8 +20,8 @@ defmodule Scrivener.Phoenix.Page do
   end
 
   # <TODO: find a better place for these functions?>
-  def link_callback(%{live: true}), do: &Phoenix.LiveView.Helpers.live_patch/2
-  def link_callback(_options), do: &Phoenix.HTML.Link.link/2
+  def link_callback(%{live: true}), do: &link/2
+  def link_callback(_options), do: &PhoenixHTMLHelpers.Link.link/2
 
   def handle_rel(page = %__MODULE__{}, spage = %Scrivener.Page{}, attributes \\ []) do
     cond do
@@ -83,5 +85,20 @@ end
     |> Kernel.-(page.no)
     |> abs()
     |> Kernel.<=(options.window)
+  end
+
+  defp link(text, opts) do
+    uri = Keyword.fetch!(opts, :to)
+
+    opts =
+      opts
+      |> Keyword.put(:patch, uri)
+      |> Keyword.delete(:to)
+
+    assigns = %{opts: opts, content: text}
+
+    ~H"""
+    <.link {@opts}><%= @content %></.link>
+    """
   end
 end

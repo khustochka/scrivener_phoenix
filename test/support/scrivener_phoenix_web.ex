@@ -17,7 +17,8 @@ defmodule ScrivenerPhoenixTestWeb do
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1, action_name: 1, controller_module: 1]
 
       # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
+      import Phoenix.HTML
+      use PhoenixHTMLHelpers
 
       alias ScrivenerPhoenixTestWeb.Router.Helpers, as: Routes
       #import ScrivenerPhoenixTestWeb.ErrorHelpers
