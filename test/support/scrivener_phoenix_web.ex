@@ -18,7 +18,6 @@ defmodule ScrivenerPhoenixTestWeb do
 
       # Use all HTML functionality (forms, tags, etc)
       import Phoenix.HTML
-      import Phoenix.HTML.Form
       use PhoenixHTMLHelpers
 
       alias ScrivenerPhoenixTestWeb.Router.Helpers, as: Routes

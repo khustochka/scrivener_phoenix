@@ -82,7 +82,6 @@ defmodule Scrivener.Phoenix.Template do
   defmacro __using__(_options) do
     quote do
       import Phoenix.HTML
-      import Phoenix.HTML.Form
       use PhoenixHTMLHelpers
 
       import unquote(__MODULE__)
