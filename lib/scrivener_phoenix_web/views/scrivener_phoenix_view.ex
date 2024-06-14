@@ -16,7 +16,7 @@ defmodule Scrivener.PhoenixView do
   @default_param_name :page
   @default_merge_params false
   @default_display_if_single false
-  @default_template Scrivener.Phoenix.Template.Bootstrap4
+  @default_template Scrivener.Phoenix.Template.Tailwind
 
   defp defaults do
     [
