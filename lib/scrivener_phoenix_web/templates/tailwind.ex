@@ -7,7 +7,7 @@ defmodule Scrivener.Phoenix.Template.Tailwind do
   alias Scrivener.Phoenix.Gap
   alias Scrivener.Phoenix.Page
   import Scrivener.Phoenix.Page
-  import Scrivener.Phoenix.Gettext
+  use Gettext, backend: Scrivener.Phoenix.Gettext
 
   @shared_wrap_class "page-item text-center my-2"
   @link_wrap_class "border"
