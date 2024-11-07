@@ -7,7 +7,7 @@ defmodule Scrivener.Phoenix.Template.Bootstrap4 do
   alias Scrivener.Phoenix.Gap
   alias Scrivener.Phoenix.Page
   import Scrivener.Phoenix.Page
-  import Scrivener.Phoenix.Gettext
+  use Gettext, backend: Scrivener.Phoenix.Gettext
 
   defp li_wrap(content, options) do
     {_old_value, options} =
