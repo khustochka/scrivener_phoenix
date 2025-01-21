@@ -16,6 +16,7 @@ defmodule Scrivener.Phoenix.MergeParamsTest do
       # TODO: add a public intermediary function to build options
       |> Scrivener.PhoenixView.url(fun, helper_arguments, 2, Enum.into(options, %{params: nil, param_name: :page}))
       |> URI.parse()
+
     assert expected == URI.decode_query(uri.query)
   end
 

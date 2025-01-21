@@ -35,6 +35,6 @@ defmodule ScrivenerPhoenix.TestHelpers do
 
   @spec render(conn :: Plug.Conn.t | module, entries :: Scrivener.Page.t, function :: function, params :: list, options :: Keyword.t) :: String.t
   def render(conn, entries = %Scrivener.Page{}, function, params, options \\ []) do
-    Phoenix.View.render_to_string(ScrivenerPhoenixTestWeb.DummyView, "index.html", binding())
+    Phoenix.Template.render_to_string(ScrivenerPhoenixTestWeb.DummyHTML, "index", "html", binding())
   end
 end
