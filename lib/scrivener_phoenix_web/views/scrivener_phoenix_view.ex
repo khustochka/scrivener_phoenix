@@ -376,7 +376,7 @@ defmodule Scrivener.PhoenixView do
     new_query_params =
       conn
       |> query_params(options)
-      |> Map.put(options.param_name, page_number)
+      |> Map.put(to_string(options.param_name), page_number)
       |> merge_user_params(options)
       |> map_to_keyword()
 
