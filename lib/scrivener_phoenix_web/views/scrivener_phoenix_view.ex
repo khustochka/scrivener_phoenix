@@ -32,17 +32,17 @@ defmodule Scrivener.PhoenixView do
       merge_params: @default_merge_params,
       template: @default_template,
       labels: %{
-          first: dgettext("scrivener_phoenix", "First"),
-          prev: dgettext("scrivener_phoenix", "Prev"),
-          next: dgettext("scrivener_phoenix", "Next"),
-          last: dgettext("scrivener_phoenix", "Last"),
+        first: dgettext("scrivener_phoenix", "First"),
+        prev: dgettext("scrivener_phoenix", "Prev"),
+        next: dgettext("scrivener_phoenix", "Next"),
+        last: dgettext("scrivener_phoenix", "Last"),
       },
       symbols: %{
-          first: "«",
-          prev: "‹",
-          next: "›",
-          last: "»",
-          #gap: "…",
+        first: "«",
+        prev: "‹",
+        next: "›",
+        last: "»",
+        #gap: "…",
       },
     ]
   end
