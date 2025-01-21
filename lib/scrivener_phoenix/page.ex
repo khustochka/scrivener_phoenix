@@ -19,7 +19,7 @@ defmodule Scrivener.Phoenix.Page do
 
   # <TODO: find a better place for these functions?>
   def link_callback(%{live: true}), do: &Phoenix.LiveView.Helpers.live_patch/2
-  def link_callback(_options), do: &Phoenix.HTML.Link.link/2
+  def link_callback(_options), do: &PhoenixHTMLHelpers.Link.link/2
 
   def handle_rel(page = %__MODULE__{}, spage = %Scrivener.Page{}, attributes \\ []) do
     cond do

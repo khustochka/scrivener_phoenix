@@ -11,42 +11,42 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
 
-#, elixir-format
-#: lib/scrivener_phoenix_web/templates/bootstrap4.ex:15
+#: lib/scrivener_phoenix_web/templates/bootstrap4.ex:30
+#, elixir-format, elixir-autogen
 msgid "First page"
 msgstr "Première page"
 
-#, elixir-format
-#: lib/scrivener_phoenix_web/templates/bootstrap4.ex:31
+#: lib/scrivener_phoenix_web/templates/bootstrap4.ex:44
+#, elixir-format, elixir-autogen
 msgid "Last page"
 msgstr "Dernière page"
 
-#, elixir-format
-#: lib/scrivener_phoenix_web/templates/bootstrap4.ex:46
+#: lib/scrivener_phoenix_web/templates/bootstrap4.ex:59
+#, elixir-format, elixir-autogen
 msgid "Next page"
 msgstr "Page suivante"
 
-#, elixir-format
-#: lib/scrivener_phoenix_web/templates/bootstrap4.ex:39
+#: lib/scrivener_phoenix_web/templates/bootstrap4.ex:52
+#, elixir-format, elixir-autogen
 msgid "Previous page"
 msgstr "Page précédente"
 
-#, elixir-format
-#: lib/scrivener_phoenix_web/views/scrivener_phoenix_view.ex:19
+#: lib/scrivener_phoenix_web/views/scrivener_phoenix_view.ex:35
+#, elixir-format, elixir-autogen
 msgid "First"
 msgstr "Première"
 
-#, elixir-format
-#: lib/scrivener_phoenix_web/views/scrivener_phoenix_view.ex:22
+#: lib/scrivener_phoenix_web/views/scrivener_phoenix_view.ex:38
+#, elixir-format, elixir-autogen
 msgid "Last"
 msgstr "Dernière"
 
-#, elixir-format
-#: lib/scrivener_phoenix_web/views/scrivener_phoenix_view.ex:21
+#: lib/scrivener_phoenix_web/views/scrivener_phoenix_view.ex:37
+#, elixir-format, elixir-autogen
 msgid "Next"
 msgstr "Suivante"
 
-#, elixir-format
-#: lib/scrivener_phoenix_web/views/scrivener_phoenix_view.ex:20
+#: lib/scrivener_phoenix_web/views/scrivener_phoenix_view.ex:36
+#, elixir-format, elixir-autogen
 msgid "Prev"
 msgstr "Précédente"

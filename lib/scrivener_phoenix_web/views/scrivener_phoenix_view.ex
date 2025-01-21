@@ -5,7 +5,7 @@ defmodule Scrivener.PhoenixView do
 
   alias Scrivener.Phoenix.Gap
   alias Scrivener.Phoenix.Page
-  import Scrivener.Phoenix.Gettext
+  use Gettext, backend: Scrivener.Phoenix.Gettext
 
   @default_left 0
   @default_right 0

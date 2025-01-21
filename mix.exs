@@ -55,10 +55,11 @@ defmodule Scrivener.Phoenix.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:gettext, "~> 0.20"},
-      {:scrivener, "~> 2.5"},
-      #{:phoenix_html, "~> 2.11"}, # pulled by phoenix_live_view
-      {:phoenix_live_view, ">= 0.16.0"},
+      {:gettext, "~> 0.26"},
+      {:scrivener, "~> 2.7"},
+      {:phoenix_view, "~> 2.0", only: :test},
+      {:phoenix_html_helpers, "~> 1.0"},
+      {:phoenix_live_view, "~> 1.0"},
       {:ex_doc, "~> 0.25", only: :dev, runtime: false},
       # test
       {:jason, "~> 1.2", only: :test},
