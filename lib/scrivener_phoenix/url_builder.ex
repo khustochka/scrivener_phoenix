@@ -15,8 +15,13 @@ defmodule Scrivener.Phoenix.URLBuilder do
     options :: options
   ) :: String.t
   def url(uri = %URI{}, _fun = nil, _helper_arguments, page_number, sanitized_params, options) do
-    # NOTE: URI.encode_query/[12] doesn't handle parameters in list (id[]=3&id[]=5) or map (id[3]=false&id[5]=true) form
-    %{uri | query: Plug.Conn.Query.encode(sanitized_params)}
+    new_query =
+      sanitized_params
+      |> Map.put(to_string(options.param_name), to_string(page_number))
+      # NOTE: URI.encode_query/[12] doesn't handle parameters in list (id[]=3&id[]=5) or map (id[3]=false&id[5]=true) form
+      |> Plug.Conn.Query.encode()
+
+    %{uri | query: new_query}
     |> URI.to_string()
   end
 
