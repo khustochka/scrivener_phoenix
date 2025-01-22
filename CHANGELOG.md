@@ -4,6 +4,8 @@
 
 * fixed french translation for Plural-Forms (gettext/fr)
 * added option *params* to propagate parameters when it is required to do so "by hand" (think LiveView, `Phoenix.LiveView.push_patch/2` in particular)
+* updated gettext to 0.26
+* added support to handle `%URI{}` (page in query string only)
 
 ## 0.3.2 (2022-07-23)
 
