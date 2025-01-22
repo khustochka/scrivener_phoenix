@@ -3,6 +3,7 @@ defmodule Scrivener.Phoenix.Page do
   A page (link) to render in HTML for the pagination.
   """
 
+  @derive {Phoenix.Param, key: :no}
   defstruct ~W[no href]a
 
   @type t :: %__MODULE__{
