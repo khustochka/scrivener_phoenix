@@ -23,7 +23,10 @@ def deps do
   [
     # ...
     {:scrivener_ecto, "~> 2.7"},
-    {:scrivener_phoenix, "~> 0.3.2"},
+    {:scrivener_phoenix, "~> 0.3.2", override: true},
+    # to use master branch, replace the line above with:
+    #{:scrivener_phoenix, github: "julp/scrivener_phoenix", branch: "master"},
+    # but keep in mind that documentation (on hex.pm) could be outdated
   ]
 end
 ```
