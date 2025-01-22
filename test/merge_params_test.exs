@@ -11,13 +11,10 @@ defmodule Scrivener.Phoenix.MergeParamsTest do
   defp do_query_test(conn, query, options, expected) do
     options = Enum.into(options, %{params: nil, param_name: :page}) # TODO: DRY
 
-    conn =
-      case conn do
-        %URI{} -> %{conn | query: query}
-        %Plug.Conn{} -> %{conn | query_params: Plug.Conn.Query.decode(query)}
-      end
-
-    assert expected == Scrivener.Phoenix.URLBuilder.fetch_and_sanitize_params(conn, options)
+    conn
+    |> set_query(query)
+    |> Scrivener.Phoenix.URLBuilder.fetch_and_sanitize_params(options)
+    |> (& assert &1 == expected).()
   end
 
   defp do_test(conn, fun, helper_arguments, options, expected) do
@@ -69,13 +66,13 @@ defmodule Scrivener.Phoenix.MergeParamsTest do
       do_test(conn, &Routes.blog_post_url/3, args, [merge_params: ~W[per]a], expected)
     end
 
-    test "query string with list in parameters", %{conn: conn} do
+    test "query string with a list in parameters", %{conn: conn} do
       for source <- [conn, %URI{}] do
         do_query_test(source, "page=1&id[]=5&id[]=3", [merge_params: ~W[id]], %{"id" => ["5", "3"]})
       end
     end
 
-    test "query string with map in parameters", %{conn: conn} do
+    test "query string with a map in parameters", %{conn: conn} do
       for source <- [conn, %URI{}] do
         do_query_test(source, "page=1&id[5]=false&id[3]=true", [merge_params: ~W[id]], %{"id" => %{"5" => "false", "3" => "true"}})
       end

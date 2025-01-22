@@ -1,6 +1,32 @@
 defmodule ScrivenerPhoenix.TestHelpers do
   #alias Scrivener.Phoenix.Page
 
+  @spec decode_query(query :: %{optional(String.t) => any}) :: String.t
+  defp encode_query(query) do
+    Plug.Conn.Query.encode(query)
+  end
+
+  @spec decode_query(query :: String.t) :: %{optional(String.t) => any}
+  defp decode_query(query) do
+    Plug.Conn.Query.decode(query)
+  end
+
+  def set_query(conn = %Plug.Conn{}, query) do
+    if is_binary(query) do
+      %{conn | query_params: decode_query(query)}
+    else
+      %{conn | query_params: query}
+    end
+  end
+
+  def set_query(uri = %URI{}, query) do
+    if is_binary(query) do
+      %{uri | query: query}
+    else
+      %{uri | query: encode_query(query)}
+    end
+  end
+
   @spec page_count(total_entries :: non_neg_integer, page_size :: pos_integer) :: pos_integer
   defp page_count(total_entries, page_size) do
     div(total_entries - 1, page_size) + 1
