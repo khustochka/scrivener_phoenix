@@ -47,10 +47,10 @@ defmodule Scrivener.Phoenix.Template do
     def first_page(_page, %Scrivener.Page{page_number: 1}, _options), do: nil
 
     def first_page(page = %%Scrivener.Phoenix.Page{}, _spage, _options) do
-    content_tag(:li) do
-      link("First page", to: page.href)
+      content_tag(:li) do
+        link("First page", to: page.href)
+      end
     end
-  end
   """
   @callback first_page(Scrivener.Phoenix.Page.t, Scrivener.Page.t, Scrivener.PhoenixView.options) :: Phoenix.HTML.safe | nil
 
