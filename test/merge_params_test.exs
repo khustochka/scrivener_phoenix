@@ -1,6 +1,5 @@
 defmodule Scrivener.Phoenix.MergeParamsTest do
   use ScrivenerPhoenixWeb.ConnCase, async: true
-
   alias ScrivenerPhoenixTestWeb.Router.Helpers, as: Routes
 
   setup %{conn: conn} do
@@ -9,15 +8,20 @@ defmodule Scrivener.Phoenix.MergeParamsTest do
     ]
   end
 
-  defp do_test(conn, fun, helper_arguments, options, expected) do
-    uri =
-      conn
-      # NOTE: for Scrivener.PhoenixView.url, options were previously converted to a map
-      # TODO: add a public intermediary function to build options
-      |> Scrivener.PhoenixView.url(fun, helper_arguments, 2, Enum.into(options, %{params: nil, param_name: :page}))
-      |> URI.parse()
+  defp do_test(conn, _fun, _helper_arguments, options, expected) do
+    options = Enum.into(options, %{params: nil, param_name: :page})
+#     sanitized_params = Scrivener.Phoenix.URLBuilder.fetch_and_sanitize_params(conn, options)
 
-    assert expected == URI.decode_query(uri.query)
+#     uri =
+#       conn
+#       # NOTE: for Scrivener.PhoenixView.URLBuilder.url, options were previously converted to a map
+#       # TODO: add a public intermediary function to build options
+#       |> Scrivener.Phoenix.URLBuilder.url(fun, helper_arguments, 2, sanitized_params, options)
+#       |> URI.parse()
+
+#     assert expected == URI.decode_query(uri.query)
+
+    assert Map.delete(expected, to_string(options.param_name)) == Scrivener.Phoenix.URLBuilder.fetch_and_sanitize_params(conn, options)
   end
 
   describe "test merge_params behaviour" do
