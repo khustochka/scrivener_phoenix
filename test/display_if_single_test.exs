@@ -3,7 +3,12 @@ defmodule Scrivener.Phoenix.DisplayIfSingleTest do
   alias ScrivenerPhoenixTestWeb.Router.Helpers, as: Routes
 
   defp active_page_presence?(output, no \\ 1) do
-    output =~ "<li class=\"page-item active\"><a class=\"page-link\" href=\"#\">#{no}</a></li>"
+    {:ok, doc} = Floki.parse_document(output)
+
+    case Floki.find(doc, ".pagination li.page-item.active") do
+      [] -> false
+      [el | _] -> Floki.text(el) == "#{no}"
+    end
   end
 
   @parameters [:show, 643]
